@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceRoot}/test/Supperxin.Geetest.IntegrationTest/bin/Debug/netcoreapp1.1/Supperxin.Geetest.IntegrationTest.dll",
+            "program": "${workspaceRoot}/demo/Supperxin.Geetest.Demo/bin/Debug/netcoreapp1.1/Supperxin.Geetest.Demo.dll",
             "args": [],
-            "cwd": "${workspaceRoot}/test/Supperxin.Geetest.IntegrationTest",
+            "cwd": "${workspaceRoot}/demo/Supperxin.Geetest.Demo",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
             "console": "internalConsole",
             "stopAtEntry": false,
