@@ -259,10 +259,8 @@ namespace Supperxin.Geetest
         {
             String url = string.Format("{0}{1}", GeetestLib.apiUrl, GeetestLib.validateUrl);
             using (var httpClient = new HttpClient())
-            using (var stream = new MemoryStream())
-            using(var httpContent = new StreamContent(stream))
+            using(var httpContent = new StringContent(data, Encoding.UTF8, "application/x-www-form-urlencoded"))
             {
-                httpContent.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
                 var response = httpClient.PostAsync(url, httpContent).Result;
                 string retString = response.Content.ReadAsStringAsync().Result;
 
