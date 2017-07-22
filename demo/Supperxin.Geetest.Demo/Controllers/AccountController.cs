@@ -24,6 +24,7 @@ namespace Supperxin.Geetest.Demo.Controllers
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
         private readonly string _externalCookieScheme;
+        private readonly GeetestOptions _geetestOptions;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
@@ -31,7 +32,8 @@ namespace Supperxin.Geetest.Demo.Controllers
             IOptions<IdentityCookieOptions> identityCookieOptions,
             IEmailSender emailSender,
             ISmsSender smsSender,
-            ILoggerFactory loggerFactory)
+            ILoggerFactory loggerFactory,
+            IOptions<GeetestOptions> optionsAccessor)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -39,6 +41,7 @@ namespace Supperxin.Geetest.Demo.Controllers
             _emailSender = emailSender;
             _smsSender = smsSender;
             _logger = loggerFactory.CreateLogger<AccountController>();
+            _geetestOptions = optionsAccessor.Value;
         }
 
         //
@@ -57,7 +60,7 @@ namespace Supperxin.Geetest.Demo.Controllers
 
         private String getCaptcha()
         {
-            GeetestLib geetest = new GeetestLib("76653f8fe2889d46d0e074cb308f141d", "ebe67ad8be2690f7db5e9b8fa04753cb");
+            GeetestLib geetest = new GeetestLib(_geetestOptions.Id, _geetestOptions.Key);
             String userID = "test";
             Byte gtServerStatus = geetest.preProcess(userID);
             // Session[GeetestLib.gtServerStatusSessionKey] = gtServerStatus;
@@ -75,7 +78,7 @@ namespace Supperxin.Geetest.Demo.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                GeetestLib geetest = new GeetestLib("76653f8fe2889d46d0e074cb308f141d", "ebe67ad8be2690f7db5e9b8fa04753cb");
+                GeetestLib geetest = new GeetestLib(_geetestOptions.Id, _geetestOptions.Key);
                 //Byte gt_server_status_code = (Byte) Session[GeetestLib.gtServerStatusSessionKey];
                 Byte gt_server_status_code = 1;
                 String userID = "test";

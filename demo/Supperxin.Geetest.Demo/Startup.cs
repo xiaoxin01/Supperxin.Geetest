@@ -52,6 +52,8 @@ namespace Supperxin.Geetest.Demo
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+
+            services.Configure<GeetestOptions>(Configuration.GetSection("Geetest"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

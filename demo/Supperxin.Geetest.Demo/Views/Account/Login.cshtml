@@ -47,7 +47,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <button type="submit" class="btn btn-default">Log in</button>
+                        <button id="login" type="submit" class="btn btn-default">Log in</button>
                     </div>
                 </div>
                 <p>
@@ -96,7 +96,6 @@
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
     <script src="~/js/gt.js"></script>
     <script>
-
         var data = @Html.Raw(ViewData["Captcha"]);
         initGeetest({
             // 以下配置参数来自服务端 SDK
@@ -107,6 +106,13 @@
         }, function (captchaObj) {
             // 这里可以调用验证实例 captchaObj 的实例方法
             captchaObj.appendTo('#captcha-box');
+            $('#login').click(function () {
+                var result = captchaObj.getValidate();
+                if (!result) {
+                    alert('请完成验证');
+                    return false;
+                }
+            })
         })
     </script>
 }

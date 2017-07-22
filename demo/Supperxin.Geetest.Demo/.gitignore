@@ -296,3 +296,4 @@ __pycache__/
 
 Configuration.json
 wwwroot/lib/**
+appsettings.Development.json
