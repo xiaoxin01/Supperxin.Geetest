@@ -70,7 +70,7 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
 
 ## 客户端
 
-在用户名和密码下方添加验证码区域，并且给submit button添加id
+打开文件：Login.cshtml，在用户名和密码下方添加验证码区域，并且给submit button添加id
 
 ```html
 <div class="form-group">
@@ -125,7 +125,7 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
 
 运行效果如下：
 
-图片
+![](http://cdn.supperxin.com/images/upload/2017/7/5dbd6356-1850-41d4-87b0-c7dcb5ed1367.jpg)
 
 # 参考
 
