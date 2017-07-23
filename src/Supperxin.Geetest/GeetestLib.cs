@@ -164,7 +164,8 @@ namespace Supperxin.Geetest
         }
         private Boolean requestIsLegal(String challenge, String validate, String seccode)
         {
-            if (challenge.Equals(string.Empty) || validate.Equals(string.Empty) || seccode.Equals(string.Empty)) return false;
+            //if (challenge.Equals(string.Empty) || validate.Equals(string.Empty) || seccode.Equals(string.Empty)) return false;
+            if (challenge == string.Empty || validate == string.Empty || seccode == string.Empty) return false;
             return true;
         }
 

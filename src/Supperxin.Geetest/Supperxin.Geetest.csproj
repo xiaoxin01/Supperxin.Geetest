@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
     <PackageId>Supperxin.Geetest</PackageId>
-    <PackageVersion>1.1.0</PackageVersion>
+    <PackageVersion>1.1.1</PackageVersion>
     <Authors>Supperxin</Authors>
     <Title>Geetest .net core sdk</Title>
     <Description>This is a package for geetest recaptcha service</Description>
